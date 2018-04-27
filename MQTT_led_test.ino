@@ -1,18 +1,21 @@
+*****************************************************************
+*                        VinoJV                                 *
+*****************************************************************
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
 #define MQTT_VERSION MQTT_VERSION_3_1_1
 
 // Wifi: SSID and password
-const char* WIFI_SSID = "Vino";
-const char* WIFI_PASSWORD = "vinoth@1996";
+const char* WIFI_SSID = "Your SSID";
+const char* WIFI_PASSWORD = "Your Password";
 
 // MQTT: ID, server IP, port, username and password
 const PROGMEM char* MQTT_CLIENT_ID = "office_light1";
-const PROGMEM char* MQTT_SERVER_IP = "192.168.1.102";
-const PROGMEM uint16_t MQTT_SERVER_PORT = 1883;
-const PROGMEM char* MQTT_USER = "hassio";
-const PROGMEM char* MQTT_PASSWORD = "vinoth";
+const PROGMEM char* MQTT_SERVER_IP = "192.168.1.102"; //IP Address of your MQTT server
+const PROGMEM uint16_t MQTT_SERVER_PORT = 1883; //Default
+const PROGMEM char* MQTT_USER = ""; //MQTT Username (use this if your server runs encrypted service)
+const PROGMEM char* MQTT_PASSWORD = ""; //MQTT password (use this if your server runs encrypted service)
 
 // MQTT: topics
 const char* MQTT_LIGHT_STATE_TOPIC = "office/light1/status";
@@ -22,7 +25,7 @@ const char* MQTT_LIGHT_COMMAND_TOPIC = "office/light1/switch";
 const char* LIGHT_ON = "ON";
 const char* LIGHT_OFF = "OFF";
 
-const PROGMEM uint8_t LED_PIN = 14;
+const PROGMEM uint8_t LED_PIN = 14; // GPIO 14 of Nodemcu
 boolean m_light_state = false; // light is turned off by default
 
 WiFiClient wifiClient;
